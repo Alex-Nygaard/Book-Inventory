@@ -21,3 +21,19 @@ Journal Alex N. UNIT 3
 #### Questions
 * What is the most efficient sorting method?
 
+### 5. Feb 2020
+
+#### What we did
+* Python programming
+* CTS approach
+* Divided project roles
+* My project: Norwegian candies inventory - developed by Lydia
+
+#### What i learned
+* Client to developer roles
+
+#### To-do
+* Develop system for CP's Book inventory
+
+#### Questions
+* 
