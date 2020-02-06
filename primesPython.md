@@ -45,12 +45,19 @@ for i in range(2, 1 + max_divisor):
     return False
 ```
 
-Where `max_divisor` represents the square root of `x`.
+Where `max_divisor` represents the square root of `x`. (In the range() function, the square root is also checked, thus the +1)
 
 In this solution the `math` library was also imported to use the functions
 * `floor` for rounding down the square root to the closest integer
 and
 * `sqrt` for getting the square root of a number
+
+## Method 3: Improving method 2 by removing even numbers
+The last method is essentially identical to method 2, however with the difference being that all even numbers are removed when checking for factors.
+
+This change is implemented in two ways. 
+Firstly, the program checks if the number `x` = 2 or if `x` is greater than 2 and x is even. If either of these are true, the function returns a False, meaning `x` is not a prime number.
+The second change is the step in the `range()` function in the for loop. Instead of checking every number in the `range(2, 1 + max_divisor)` as in method 2, the for loop rather uses `range(3, 1 + max_divisor, 2)`, starting from 3, going to the square root and only including EVERY OTHER integer. This results in excluding every even number for the checking.
 
 
 
