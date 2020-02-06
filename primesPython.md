@@ -34,7 +34,25 @@ The reason this is possible, can be illuminated when looking at the example of 3
 * *23 x 2*
 * *36 x 1*
 
-The key values here are **6 x 6**. This is the square root of 36, and after this the factors highlighted in *cursive* are merely a repeat of the factors before **6 x 6**. 
+The key values here are **6 x 6**. This is the square root of 36, and after this the factors highlighted in *cursive* are merely a repeat of the factors before **6 x 6**. Thus, we can conclude that every factor after the square root of the number does not have to be checked. If the square root is not an integer, one must round the value down to the closest integer.
+
+The loop for this solution would look like this:
+```.py
+max_divisor = math.floor(math.sqrt(x))
+
+for i in range(2, 1 + max_divisor):
+  if x % i == 0:
+    return False
+```
+
+Where `max_divisor` represents the square root of `x`.
+
+In this solution the `math` library was also imported to use the functions
+* `floor` for rounding down the square root to the closest integer
+and
+* `sqrt` for getting the square root of a number
+
+
 
 
 
