@@ -72,8 +72,22 @@ reduce(f, data):
 Alternatively:
 Returns `f(f(f(a1, a2), a3), a4), ... , an)`
 
-A good example of the usage of this funtion can be seen through multiplying all the values of a list together.
+The syntax of the reduce function is `reduce(FUNC, LIST)`
 
+A good example of the usage of this funtion can be seen through multiplying all the values of a list together, as done in the code below:
+```.py
+from functools import reduce
 
+# Multiply all numbers in a list
+data = [2,3,5,7,11,13,17,19,23,29]
+multiplier = lambda x,y: x * y
 
+print(
+    reduce(multiplier, data)
+)
+```
+
+The lambda function is passed as the FUNC argument and the data variable is passed as the list argument.
+
+However as mentioned in the video, the founder of Python rather recommends using a separate for-loop instead of reduce for increased readability.
 
