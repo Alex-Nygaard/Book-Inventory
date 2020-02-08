@@ -59,20 +59,17 @@ This change is implemented in two ways.
 Firstly, the program checks if the number `x` = 2 or if `x` is greater than 2 and x is even. If either of these are true, the function returns a False, meaning `x` is not a prime number.
 The second change is the step in the `range()` function in the for loop. Instead of checking every number in the `range(2, 1 + max_divisor)` as in method 2, the for loop rather uses `range(3, 1 + max_divisor, 2)`, starting from 3, going to the square root and only including EVERY OTHER integer. This results in excluding every even number for the checking.
 
+The most important changes being made here can be seen in code as follows:
 
-
-
-
-
-
-
-
-
-
-
-
-### Breaking the objective into smaller sub-tasks
-The objective outlined above can easily be broken down into smaller sub-problems, that can more easily be thought through and developed, and thereafter be combined to form the larger program. An example of how I would break this task into smaller tasks is shown through the following list:
-
-* Bruteforcing the prime number
-* 
+```.py
+# First eliminate the possibility of x being 2 and x being even.
+if x == 2:
+    return True
+if x > 2 and x % 2 == 0:
+    return False
+    
+# Second, using a step of 2 in the for-loop
+for i in range(3, 1 + max_divisor, 2):
+    if x % i == 0:
+        return False
+```
