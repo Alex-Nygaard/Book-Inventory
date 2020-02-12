@@ -37,3 +37,22 @@ Journal Alex N. UNIT 3
 
 #### Questions
 * 
+
+
+### 12. Feb 2020
+
+#### What we did
+* Conducted client and developer interviews for inventory project
+* Created secure login method in python
+
+#### What i learned
+* Encrypting data in python
+* Getting successcriteria from the client
+
+#### To-do
+* 
+
+#### Questions
+* What is the best encryption protocol to use in python?
+
+
