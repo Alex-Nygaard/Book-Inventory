@@ -56,3 +56,19 @@ Journal Alex N. UNIT 3
 * What is the best encryption protocol to use in python?
 
 
+### 13. Feb 2020
+
+#### What we did
+* Python coding practice
+* Making small programs for string manipulation
+
+#### What i learned
+* String manipulation
+* Computational problemsolving
+
+#### To-do
+* 
+
+#### Questions
+* 
+
