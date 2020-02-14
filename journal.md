@@ -72,3 +72,20 @@ Journal Alex N. UNIT 3
 #### Questions
 * 
 
+
+### 13. Feb 2020
+
+#### What we did
+* Python coding practice
+* Client to developer discussion
+  * Success criteria confirmation
+
+#### What i learned
+* Client requirements and dialog
+
+#### To-do
+* Work on Criterion A
+
+#### Questions
+* 
+
