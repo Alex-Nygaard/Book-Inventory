@@ -89,3 +89,21 @@ Journal Alex N. UNIT 3
 #### Questions
 * 
 
+
+### 17. Feb 2020
+
+#### What we did
+* Bank account problem
+ * OOP - Object oriented programming, functional programming
+
+#### What i learned
+* OOP practice
+* Classes
+* Self "ownership" within a class
+
+#### To-do
+* Practice OOP (homework)
+* Work on criterion A for 
+
+#### Questions
+* 
