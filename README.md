@@ -17,6 +17,7 @@ See the link below to read the explicit consultation with the client. This secti
 [Client Requirements and Design Brief](clientRequirementsAndDesignBrief.md)
 
 The success criteria of the project was confirmed by the client on 14. Feb. Evidence of this discussion can be found through this voice recording of the interview:
+
 [Confirming success criteria - An interview](successCriteria.m4a)
 
 
@@ -42,15 +43,15 @@ Success criteria in order of priority. These criterias have been consulted with 
   * Date of publication
   * How many times the book has been read
 * Adding books
- * Easy input within GUI
+  * Easy input within GUI
 * Removing books
- * One-button click
+  * One-button click
 * Search for a book
- * Displaying results in less than 1 sec
- * Results in each category
- * Intuitive display of results (most important and relevant first)
-  * Prioritizes Titles, authors
-  * Displays most frequently read first
+  * Displaying results in less than 1 sec
+  * Results in each category
+  * Intuitive display of results (most important and relevant first)
+    * Prioritizes Titles, authors
+    * Displays most frequently read first
 
 
 ## Development
