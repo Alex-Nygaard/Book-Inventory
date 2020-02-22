@@ -33,8 +33,8 @@ My solution will be an offline graphical user interface (GUI) software program b
 Success criteria in order of priority. These criterias have been consulted with and confirmed by the client.
 
 * Secure login
- * Username
- * Encrypted password
+  * Username
+  * Encrypted password
 * Having categories for book characteristics
   * Authors
   * Continent and nationality of author
@@ -52,6 +52,15 @@ Success criteria in order of priority. These criterias have been consulted with 
   * Intuitive display of results (most important and relevant first)
     * Prioritizes Titles, authors
     * Displays most frequently read first
+
+### TELOS Principle
+TELOS is an essential fundamental principle within project management for which the feasibility of the project can be assessed. TELOS is an acronym for **T**echnical, **E**conomic, **L**egal, **O**perational and **S**cheduling. These 5 aspects are outlined and assessed below:
+
+1. **T**echnical - The technical aspect of this project is very feasible. 
+1. **E**conomic - There are no economic limitations on this project. It requires no funding, either for development (software, hardware etc.) or hiring. As a developer I am doing this for free.
+1. **L**egal - There are no legal considerations either. Such a small scale private project with no salary has no legal implications.
+1. **O**perational - The operational feasibility of the project includes the consideration of implementation of the program and training of the user/client for using the new software. The implementation of the program requires an installation on the clients desired device.
+1. **S**cheduling - The timeline of this project is yet to be determined. An estimation of completion of the project can be set to March 20th. However, this is very uncertain and will be subject to change as a more clear deadline is identified (f.ex. from client/teacher)
 
 
 ## Development
