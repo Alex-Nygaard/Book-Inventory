@@ -16,7 +16,7 @@ plt.ylabel("$f(x)=(x+1)^2-1$")
 plt.show()
 ```
 #### Graf:
-[graf1](HWgraph1.png)
+![graf1](HWgraph1.png)
 
 ## HL Task
 ```.py
@@ -37,7 +37,7 @@ plt.ylabel("$g(x)=0.1 * sin(0.1 * m(x))$")
 plt.show()
 ```
 #### Graf:
-[graf2](HWgraphHL.png)
+![graf2](HWgraphHL.png)
 
 
 
