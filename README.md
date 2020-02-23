@@ -14,6 +14,8 @@ The client is Christ Precieux (CP), a student attending UWC ISAK Japan. CP curre
 * Date of publication
 * How many times the book has been read
 
+The client also wants to be able to search for books based on the categories above. A search algorithm must be implemented, which quickly displayes the most relevant results divided into each individual category, based on a given search term. 
+
 No timeline has been given by the client. However, at this stage, as the developer, I have put an estimated completion date for **March 20th**. 
 
 ### Table of planning
@@ -39,6 +41,19 @@ My solution will be an **offline graphical user interface (GUI) software program
 * Offline - It will be locally accessible on one computer/device, with no server/host interraction needed. I chose this because of the added security this entails, and because there is no need. Server requirement was not specified by client, thus there is no demand. 
 * Graphical User Interface - The program will **not** be terminal based as used previously, but rather with a visual display. There will for example be buttons instead of commands, easier input of information (with text input fields) and graphical pictures of book covers etc. A simple but efficient user interface is a significant improvement of the usability of the program for the user, compared to a terminal-based program.
 * Python - I will be building this project in Python. The reason for this is purely preferential, in addition to the requirement of the assignment. Python has libraries very suitable for GUI programs, in addition to very efficient and easy-to-use data handling techniques. This choice results in an easier job for me, the developer, in contrast to using other lower-level languages. However, an argument against this choice would be that the device running the program (the client) is required to have python 3.x and every library needed pre-installed. This is a clear disadvantage. However, as a developer with the knowledge of my clients hardware/software situation, I know that the receiving device (the computer which will run the program) has all of this already installed. 
+
+**The program will have the following functionality:**
+* Adding books
+  * Creating a new book
+  * Getting the information in the different categories through user input
+* Removing books
+  * Deleting a book
+* Editing books
+  * Changing information about a book
+* Searching for books
+  * Giving results based on a given search term
+  * Separated and sorted through the categories
+  * Relevance is prioritised
 
 
 ### Comprehensive criteria for success based on feedback
