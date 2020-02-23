@@ -5,7 +5,7 @@
 ## Criteria A - Planning
 
 ### Identifying the client
-The client is Christ Precieux (CP), a student attending UWC ISAK Japan. CP currently owns a collection of books, which are completely unorganised. All of his books have certain characteristics which he wants to document and categorise, such that it is easier for him to understand and be aware of his book collection at all times. At this time, there is no system in place to handle this organisation. The client wants to be able to keep track of the characteristics of books including:
+The client is Christ Precieux (CP), a student attending UWC ISAK Japan. CP currently owns a collection of books, which are completely unorganised. All of his books have certain characteristics which he wants to document and categorise, such that it is easier for him to understand and be aware of his book collection at all times. Currently, there is no system in place to handle this organisation. The client wants to be able to keep track of the characteristics of books including:
 * Title
 * Authors
 * Continent and nationality of author
@@ -14,7 +14,7 @@ The client is Christ Precieux (CP), a student attending UWC ISAK Japan. CP curre
 * Date of publication
 * How many times the book has been read
 
-The client also wants to be able to search for books based on the categories above. A search algorithm must be implemented, which quickly displayes the most relevant results divided into each individual category, based on a given search term. 
+The client also wants to be able to search for books based on the categories above. A search algorithm must be implemented, which quickly displays the most relevant results divided into each individual category, based on a given search term. 
 
 No timeline has been given by the client. However, at this stage, as the developer, I have put an estimated completion date for **March 20th**. 
 
@@ -51,12 +51,12 @@ My solution will be an **offline graphical user interface (GUI) software program
 * Editing books
   * Changing information about a book
 * Searching for books
-  * Giving results based on a given search term
-  * Separated and sorted through the categories
+  * Giving results based on an inputted search term
+  * Separated and sorted based on the categories
   * Relevance is prioritised
 
 
-### Comprehensive criteria for success based on feedback
+### Criteria for success based on feedback
 
 Success criteria in order of priority. These criterias have been consulted with and confirmed by the client.
 
@@ -74,7 +74,7 @@ Success criteria in order of priority. These criterias have been consulted with 
 * Adding books
   * Easy input within GUI
 * Removing books
-  * One-button click
+  * One-button click (with a yes/no confirmation)
 * Search for a book
   * Displaying results in less than 1 sec
   * Results in each category
@@ -85,9 +85,9 @@ Success criteria in order of priority. These criterias have been consulted with 
 ### TELOS Principle
 TELOS is an essential fundamental principle within project management for which the feasibility of the project can be assessed. TELOS is an acronym for **T**echnical, **E**conomic, **L**egal, **O**perational and **S**cheduling. These 5 aspects are outlined and assessed below:
 
-1. **T**echnical - The technical aspect of this project is very feasible. There is no new needed technology to create this program, as both the developer and client have the appropriate computers for this process. There will be no need for new hires to create this, with me being the only needed developer to create a finished product. A techincal concern could be the the compatibility of the program with the computer running the software (considering the Python version and packages installed). As mentioned in the justification, however, this is not a challenge because the device which will run the program already has this pre-installed.
-1. **E**conomic - There are no economic limitations on this project. It requires no funding, either for development (software, hardware etc.) or hiring of new developers. As a developer I am doing this for free. The economic concerns can therefore be regarded, and in this regard the project is very feasible.
-1. **L**egal - There are no legal considerations either. Such a small scale private project with no salary has no legal implications.
+1. **T**echnical - The technical aspect of this project is very feasible. There is no new needed technology to create this program, as both the developer and client have the appropriate computers and software requirements for this process. There will be no need for new hires to create this, with me being the only needed developer to create a finished product. A techincal concern could be the the compatibility of the program with the computer running the software (considering the Python version and packages installed). As mentioned in the justification for my solution, however, this is not a challenge because the device which will run the program already has this pre-installed.
+1. **E**conomic - There are no economic limitations on this project. It requires no funding, either for development (software, hardware etc.) or hiring of new developers. As a developer I am doing this for free without a salary. The economic concerns can therefore be disregarded, and thus with this perspective the project is very feasible.
+1. **L**egal - There are no legal considerations either. Such a small scale private project with no salary has no legal implications. There is neither a contract, nor any other form of legal binding.
 1. **O**perational - The operational feasibility of the project includes the consideration of implementation of the program and training of the user/client for using the new software. The implementation of the program simply requires an installation on the clients desired device. Whether this will be over the air (online download) or manual (USB drive) will be determined when the program is finished, and based on the clients wants and needs.
 1. **S**cheduling - The timeline of this project is yet to be determined. An estimation of completion of the project can be set to March 20th. However, this is very uncertain and will be subject to change as a more clear deadline is identified (f.ex. from client/teacher)
 
