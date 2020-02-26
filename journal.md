@@ -107,3 +107,29 @@ Journal Alex N. UNIT 3
 
 #### Questions
 * 
+
+
+### 26. Feb 2020
+
+#### What we did
+* Qt Designer installation
+* Created python UI with PyQt5
+* Practice with OOP
+
+#### What i learned
+* OOP
+* Creating GUIs
+* Using Qt Designer
+
+#### To-do
+* Create UI files for all sketches
+
+#### Questions
+* 
+
+
+
+
+
+
+
