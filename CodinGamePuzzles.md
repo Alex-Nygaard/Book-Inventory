@@ -22,6 +22,9 @@ while 1:
 
 
 ## "Descent" Puzzle
+
+This puzzle was quite easy, and the key here for me was to use the built in `max()` function and `.index()` method.
+
 ```.py
 import sys
 import math
@@ -46,6 +49,9 @@ while True:
 
 
 ## "Power of Thor Episode 1" Puzzle
+
+I made a critical and obvious mistake on this puzzle, in the sense that i forgot to move the Thor character. It frustrated me for a while that the program did not work, but the problem was that i did not change the `current_x` and `current_y` values when going a direction. Another smart trick that Khalid helped me with discovering was to reset the `move_string` every loop. It was very smart to first either set the value to "S" or "N", and then rather than using many `if/else`, simply **adding** either "E" or "W" to the already existing string.
+
 ```.py
 # light_x: the X position of the light of power
 # light_y: the Y position of the light of power
@@ -83,6 +89,10 @@ while True:
 
 
 ## "There is no spoon - Episode 1" Puzzle
+
+I struggled most with this problem. First of all, understanding what the question wanted, especially what the input and output should be. I required several iterations to reach a finalized program. For example, i initially used `for line in lines` instead of using the `range` function. This proved to be a disadvantage, because the rest of the program utilizes the index of the nodes. Another example of improvements i made was the `for` loop for finding the neighbors of the nodes. Limiting this range from the next vertical/horizontal index to the width/height resulted in finding any neighbor, and then adding the `break` statement ensured that only the nearest neighbor was found. I also spent some time contemplating how i should assign the `-1, -1` values to the coordinates if no neighbor was found, however it seemed to be the easiest to always reset these variables to a **default** value of `-1, -1` for every loop.
+
+
 ```.py
 width = int(input())  # the number of cells on the X axis
 height = int(input())  # the number of cells on the Y axis
