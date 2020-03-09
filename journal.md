@@ -128,8 +128,21 @@ Journal Alex N. UNIT 3
 * 
 
 
+### 9. Mar 2020
 
+#### What we did
+* Converted Login and Home UI page to Python applications
+* Connected Login and Home page
+  * Runs simultaneously (login runs on top of main page)
+* Coded function for "exit" button on login page
 
+#### What i learned
+* Linking Qt pages together
+* Using class inheritance
 
+#### To-do
+* Continue working on project, making UI
 
+#### Questions
+* 
 
