@@ -127,6 +127,118 @@ print(binascii.hexlify(key))
 The `binascii` library is capable of translating the key to hexadecimals.
 
 
+### Design of the UI
+The design of the User Interface was created in the program QtDesigner, an application that assist in visualizing the components and layout of the PyQt5 python library. The program ensures that making dynamic and beautiful applications easier.
+
+Multiple designs were required for my program, with the different windows outlined in the list below:
+* Homescreen - overview over book collection and access to other pages (via buttons)
+* Login page - user enters credentials and is either granted or refused access into the system (this is the first page the user encounters, because a login is always required)
+* Register page - allows the user to add his/her personal details the first time the program is used
+* Add book page - user can add a book
+* Remove book page - user can remove a book
+* Search page - user can sort through the collection to find a specific book using a keyword
+
+**All the designs are shown below, in the same order.**
+
+### Homescreen
+The homescreen has 
+* 1 title
+* 1 main table with all the books and 
+* 3 buttons navigating to the pages
+  * Add book
+  * Remove book
+  * Search
+  
+  
+![homescreen](designs/allBooksPage.png)
+
+<br>
+<br>
+<br>
+
+### Login Page
+The login page has 
+* One title 
+* 2 input fields for 
+  * Username 
+  * Password
+* 1 button that checks the input of the user and possibly navigates to the home screen
+* 1 button that opens the register window
+* 1 exit button
+
+
+![login](designs/loginPage.png)
+
+<br>
+<br>
+<br>
+
+### Regiser Page
+The register page has
+* 1 title
+* 4 input fields for
+  * Email
+  * Username
+  * Password
+  * Verify password
+* 2 buttons
+  * Registering - chekcing and adding the user information
+  * Exit the register window
+
+
+![register](designs/registerPage.png)
+
+<br>
+<br>
+<br>
+
+### Add book Page
+The add book page has
+* 1 title and 1 subtitle
+* 8 input fields
+  * Title
+  * Author
+  * Editor
+  * Continent
+  * Cover color
+  * Nationality
+  * Publication date
+  * Number of times read
+* 2 buttons
+  * Add the book
+  * Cancel
+  
+
+![addBook](designs/addBookPage.png)
+
+<br>
+<br>
+<br>
+
+### Remove book Page
+The remove book page has
+* 1 title
+* 1 table for all the books
+* 1 search field, which will limit books
+* 1 back button, navigating back to the home page
+
+
+![removeBook](designs/removeBookPage.png)
+
+<br>
+<br>
+<br>
+
+### Search Page
+The search page has
+* 1 search bar
+* 1 back button, navigating back to the home page
+* 1 table with the filtered books 
+
+
+![search](designs/searchPage.png)
+
+
 ## Evalutation
 
 ## Improvements
