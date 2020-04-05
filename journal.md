@@ -146,3 +146,76 @@ Journal Alex N. UNIT 3
 #### Questions
 * 
 
+
+### 31. Mar 2020
+
+#### What I did
+* Met with Dr. Pinzon on Google Hangouts for a "check in"
+
+#### What I learned
+* Not learned, but realized that the coming weeks will require enormous self-discipline
+
+#### To-do
+* Add UI to Github
+* Continue on Unit 3 (database next)
+* Do homework for week 28 (Dr. Pinzon will send out later)
+
+#### Questions
+* 
+
+
+### 2. Apr 2020
+
+#### What I did
+* Added UI pages to Github
+  * With description and explanations
+
+#### What I learned
+* Might not be necessary with a "remove books" page, which can be done from the search or main page (from within the table)
+
+#### To-do
+* Continue on Unit 3 (database next)
+* Do homework for week 28
+  * Tasks (programming practice)
+  * Syllabus questions
+
+#### Questions
+* How does one nest a dialog box within a main window using PyQt? Meaning: They are not two independant windows, but the dialog is attached to the main window (as can be seen in Dr. Pinzons videos)
+
+
+### 4. Apr 2020
+
+#### What I did
+* Homework for week 28
+
+#### What I learned
+* Usage of classes
+* Modeling 2 graphs at once
+* Extracting data from a .csv file with python
+
+#### To-do
+* Continue on Unit 3 (database next)
+
+#### Questions
+* Does the __init__ method have to exist in a class? I wrote my code with the initializer having a simple `pass`, but i dont know if could have just removed the whole thing.
+
+
+### 5. Apr 2020
+
+#### What I did
+* Made a .csv database for my book inventory
+* Added values from the database to the table on the main window
+
+#### What I learned
+* Extracting data from a .csv file with python
+* Using the `enumerator()` function
+* Adding values to a table in PyQt
+
+#### To-do
+* Next weeks homework (?)
+
+#### Questions
+* How can i exclude one line from the object that the csv.reader() returns? (because its not stored as a list)
+
+
+
