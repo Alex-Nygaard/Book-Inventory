@@ -240,7 +240,25 @@ The search page has
 
 
 ### Integrating a Database
-A key component of the book inventory system is that it stores information on each book. This has to be achieved through a database, such that the information can be kept between user sessions. While database solutions such as SQL and SQLite could be chosen, 
+A key component of the book inventory system is that it stores information on each book. This has to be achieved through a database, such that the information can be kept between user sessions. While database solutions such as SQL and SQLite could be chosen, a more practical and lightweight solution will be suitable for such a small-scale project. Thus, a `.csv` file is used to store the data, which can be accessed through the `csv` library in python (`import csv`).
+
+This data must be loaded into the table on the main page. Below is a code snippet showing how the data is stored for later use and how the table is filled out:
+```.py
+def load_data(self):
+    # Here we read the db.csv file
+    data = []
+    with open("db.csv") as dataBase:
+        file = csv.reader(dataBase, delimiter=",")
+        for i, row in enumerate(file): # Gets all the rows, with index 0
+            for j, col in enumerate(row):
+                data.append([i,j,col]) # Creates a data-matrix that can be edited later
+                if i != 0: # Does not add the 0th index to the table (this is just titles)
+                    self.tableBooks.setItem(i-1,j,QTableWidgetItem(col)) # Append to the table at index i-1, j
+```
+*Note: The `csv.reader()` method is essential here. It is important to note how this is used. While it returns a iterable (saved as `file`), this is not a list. It cannot be sliced using `[1:5]`, for example.*
+
+The `enumerate(ITERABLE)` function returns both the iterable, combined with the index of that value. In `for i, row in enumerate(row):`, the index is stored in `i`, and the value in `row`.
+
 
 ## Evalutation
 
