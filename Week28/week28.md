@@ -12,6 +12,7 @@ One usability issue with mobile devices is limited processing power. The hardwar
 A set of rules and guidelines responsible for outlining the procedure for data exchanges between clients.
 
 ## Q4. Outline the role of the memory data register in the machine execution cycle. 
-The memory data register is a buffer (where data can be stored temporarily) between the CPU and the RAM of the computer. It is located inside the processor.
+The memory data register is a buffer (where data can be stored temporarily) between the CPU and the RAM of the computer. It is located inside the processor, and serves the purpose of allowing the processor and momory units to act independantly.
 
 ## Q5. A code for representing colours is used, where each colour is stored using 7 bits. State the number of different colours that can be represented.
+128 colors can be represented. (2^7)
