@@ -239,6 +239,9 @@ The search page has
 ![search](designs/searchPage.png)
 
 
+### Integrating a Database
+A key component of the book inventory system is that it stores information on each book. This has to be achieved through a database, such that the information can be kept between user sessions. While database solutions such as SQL and SQLite could be chosen, 
+
 ## Evalutation
 
 ## Improvements
