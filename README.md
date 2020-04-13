@@ -260,6 +260,78 @@ def load_data(self):
 The `enumerate(ITERABLE)` function returns both the iterable, combined with the index of that value. In `for i, row in enumerate(row):`, the index is stored in `i`, and the value in `row`.
 
 
+
+
+### Registering a user
+Both when the user first starts the program and when new users want to create an account, the registration of login credentials are required. These variables are given by the user and outlined below, along with the necessary requirements and constraints on the inputs themselves
+* Email
+  * Must include a "@" to be confirmed as an email address
+* Username
+  * Must only be letters and have a length greater than 5
+* Password
+  * Must be greater than 5 characters and equal to the verification field below
+* Verifying password
+  * Another input of the password, to verify that the user knows his/her password. Both must be equal
+  
+**All 3 of these parameters (email, username and password) must be confirmed and within the requirements before the information is stored. **
+
+However, the user is given more tries. When an input is wrong, the UI gives a visual response in the form of changing the color of the border of the input field. For example, in the method `validate_email()`:
+```.py
+if "@" not in email:
+    self.emailInput.setStyleSheet("border: 1px solid red") # Changes the border
+    return False
+```
+Similar tests and visual altercations are used for the other inputs.
+
+The most important method in this process is `store()`. This method is shown below with explanations and information on its functionality.
+
+1. The email and password from their separate input fields (referenced using the ID of the fields, `emailInput` and `passwordInput`) are collected and stored in variables.
+1. The email and password are hashed (encrypted) together using the `hash_password` function. Both the email and password are passed in because the application will later check if the login information (an email and password) match the registration information. The combined hash is stored in the variable `msg`
+1. All encrypted user credentials are stored in a text file named `Outputs.txt`. That file is opened and the `msg` is written to a new line.
+1. The registration window closes with the `self.close()` method
+
+
+The full code is shown here:
+```.py
+def store(self):
+    email = self.emailInput.text()
+    password = self.passwordInput.text()
+    print("hashing", email + password)
+    msg = hash_password(email + password)
+    with open("Output.txt", "a") as output_file:
+        output_file.write("{}\n".format(msg))
+    self.close()
+```
+
+### Logging a user in
+To log a user in, the user must provide an email and password which will be checked against the database of user credentials.
+
+The code is explained below:
+
+1. The inputted email and password are stored
+1. The `Output.txt` file is opened and a for-loop iterates through the encrypted credentials
+1. The `verify_password()` function is used to compare every stored password in the text file to the inputted `email + password`
+1. If they are equal, the window closes (thus the user gains access to the main window) and they are logged in
+1. If no credentials match, a pop-up is displayed showing an error message, and inputs are cleared
+
+```.py
+def try_login(self):
+    email = self.emailInput.text()
+    password = self.passwordInput.text()
+    with open("Output.txt", "r") as passwordFile:
+        for storedPassword in passwordFile:
+            if verify_password(storedPassword, email + password):
+                self.close()
+                return
+        QMessageBox.about(self, "Error", "Error: Wrong password")
+        self.emailInput.clear()
+        self.passwordInput.clear()
+```
+
+
+
+
+
 ## Evalutation
 
 ## Improvements
