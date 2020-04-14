@@ -54,7 +54,7 @@ fig, (ax1, ax2) = plt.subplots(2) # Using .subplot() to create two separate plot
 ax1.plot(dates, worldData, "b")
 ax1.set_ylabel("Global covid-19 cases")
 
-ax2.plot(dates, goldPrices, "r")
+ax2.plot(dates, goldPrices, "ro")
 ax2.set_ylabel("Gold prices (USD)")
 
 # Format x-axis as dates, with interval of 2 (for space issues)
