@@ -150,14 +150,11 @@ The homescreen has
   * Search
 
 
-<div style="display:flex">
-     <div style="flex:1;padding-right:5px;">
-          <img src="designs/allBooksPage.png" height="300">
-     </div>
-     <div style="flex:1;padding-left:5px;">
-          <img src="designs/NEWmainPage.png" height="300">
-     </div>
-</div>
+<img src="designs/allBooksPage.png" width="400">
+
+#### Reworked home page:
+
+<img src="designs/NEWmainPage.png" width="400">
 
 <br>
 
@@ -174,11 +171,13 @@ The login page has
 
 <img src="designs/loginPage.png" width="400">
 
-<br>
-<br>
+#### Reworked login page:
+
+<img src="designs/NEWloginPage.png" width="400">
+
 <br>
 
-### Regiser Page
+### Register Page
 The register page has
 * 1 title
 * 4 input fields for
@@ -191,10 +190,12 @@ The register page has
   * Exit the register window
 
 
-![register](designs/registerPage.png)
+<img src="designs/registerPage.png" width="400">
 
-<br>
-<br>
+#### Reworked register page:
+
+<img src="designs/NEWregisterPage.png" width="400">
+
 <br>
 
 ### Add book Page
@@ -212,36 +213,15 @@ The add book page has
 * 2 buttons
   * Add the book
   * Cancel
-  
 
-![addBook](designs/addBookPage.png)
+<img src="designs/addBookPage.png" width="400">
 
-<br>
-<br>
-<br>
+#### Reworked home page:
 
-### Remove book Page
-The remove book page has
-* 1 title
-* 1 table for all the books
-* 1 search field, which will limit books
-* 1 back button, navigating back to the home page
-
-
-![removeBook](designs/removeBookPage.png)
+<img src="designs/NEWaddBookPage.png" width="400">
 
 <br>
-<br>
-<br>
 
-### Search Page
-The search page has
-* 1 search bar
-* 1 back button, navigating back to the home page
-* 1 table with the filtered books 
-
-
-![search](designs/searchPage.png)
 
 
 ### Integrating a Database
