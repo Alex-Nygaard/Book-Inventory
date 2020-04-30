@@ -401,10 +401,42 @@ for cell in self.data:
     self.tableBooks.setItem(cell[0], cell[1], QTableWidgetItem(cell[2])) # Inserts data into the cells
 ```
 
+#### Adding a book
+A core functionality of the system is giving the user the opportunity to add new books. This is needed to keep the inventory system up to date with the client's book collection. The process of appending a book to a database is fairly simple, following these steps:
+1. Opening the add book window
+1. Get the inputs from the user
+1. Validate all inputs
+1. If inputs are valid, append the information to the database
+1. Close add book window
+1. Update table on main window
+
+There are 8 inputs, as mentioned in the design section (as a reminder, they are Title, Author, Editor, Continent, Cover color, Nationality, Publication date and Number of times read). Each one of these are validated. Being valid means not being left empty. This check is done as follows:
+```.py
+# Title
+if self.title != "": # not empty
+    self.titleInput.setStyleSheet("background-color: rgb(137, 255, 128); border: 1px solid green")
+else: # empty
+    self.titleInput.setStyleSheet("background-color: rgb(246, 156, 167); border: 1px solid red")
+    correctInput = False
+```
+If the field is **not empty**, the `setStyleSheet()` method is used to change the field's border and fill color to green. 
+If the field is **empty**, the field's border and fill color to red, and `correctInput` is set to `False`.
+
+Finally, `correctInput` is returned. If one or more fields are invalid, the book will not be added.
+
+However, in the case that all fields are valid, the `addBookToDB()` method is called. The code for this is below, with explanations following.
+```.py
+with open(f"{self.firstWindow.sessionEmail}_db.csv", "a+") as dataBase: # "a+" - append
+    file = csv.writer(dataBase, delimiter=",")
+    file.writerow(self.allInputs) # allInputs -> list of all inputs
+
+self.firstWindow.data = self.firstWindow.load_data() # Reload data
+self.close() # Close window
+```
+In this code snippet, step number 4, 5 and 6 are completed. The comments explain the functionality.
 
 
-
-
+#### Searching for a book
 
 
 
