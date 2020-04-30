@@ -69,8 +69,8 @@ My solution will be an **offline graphical user interface (GUI) software program
 Success criteria in order of priority. These criterias have been consulted with and confirmed by the client.
 
 * Secure login
-  * Custom username
-  * Encrypted password
+* Register new users
+  * Stores encrypted email, username and password
 * Having categories for book characteristics
   * Title
   * Authors
@@ -85,10 +85,7 @@ Success criteria in order of priority. These criterias have been consulted with 
   * One-button click (with a yes/no confirmation)
 * Search for a book
   * Displaying results in less than 1 sec
-  * Results in each category
-  * Intuitive display of results (most important and relevant first)
-    * Prioritizes Titles, authors
-    * Displays most frequently read first
+  * Intuitive display of results
 
 ### TELOS Principle
 
