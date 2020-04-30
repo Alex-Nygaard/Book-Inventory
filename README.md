@@ -98,49 +98,19 @@ It can be found here:
 
 [TELOS feasibility report](TELOS.md)
 
+### System design diagram
+Below is the system design diagram, including all the main components that will collectively become a working application. Each box is a separate window that the user interacts with through the buttons and input fields (outlined in the diagram). The databases are shown as well, and the single-lined arrows indicate the dataflow; what data is transferred and used where. Sme of the main processes, such as user authentication, revert, save, adding a book and search, are also included. This is only intended to represent a surface picture of the system. For detailed description of individual components, visit the [Design](#design) and [Development](#development) pages.
+
+![systemDiagram](systemDiagram.png)
+
+
 
 Design
 ---------------
 
-
-
-
-Development
----------------
-
-### Secure login program
-An essential part of the program, and the top priority on the success criteria list, is implementing a secure login method. As mentioned previously the client is the only one with access to this program, and therefore an encrypted and secure password lock is crucial. Below are the most important and relevant parts of the code needed to accomplish this, including explanations.
-
-**Getting a password, and confirming it**
-When signing up, the user picks a password. To ensure that no typos occured, the user must re-enter the password to verify it. 
-```.py
-confirmed = False
-while not confirmed:
-    password = input("Enter password: ")
-    c_password = input("Confirm your password: ")
-    confirmed = True if password == c_password else False
-print("Password confirmed")
-```
-*Note the last line, in which a **Pythonic** practice is used - meaning - efficient compression of code into fewer lines. The boolean `confirmed` is only changed to true if the `if` statement is met. `Else`, it is not changed. The loop continues until the password is confirmed.*
-
-**Encrypting the password string**
-```.py
-import os
-import hashlib
-
-salt = os.urandom(32) # this creates a 32 bytes
-key = hashlib.pbkdf2_hmac("sha256", str(password).encode("utf-8"), salt, 1000)
-```
-To encrypt the password string both libraries `os` and `hashlib` must be imported.
-`salt` is assigned as a string of size random bytes suitable for cryptographic use. More information can be found [here](https://www.geeksforgeeks.org/python-os-urandom-method/). In this example, the random string is 32 bytes.
-`key` holds the encrypted password. The module `hashlib.pbkdf2_hmac()` is used with the secure hash algorithm SHA256. More information about this library and module can be found [here](https://docs.python.org/3/library/hashlib.html).
-
-To display the encrypted password as a hexadecimal value, one must simply do as follows:
-```.py
-import binascii
-print(binascii.hexlify(key))
-```
-The `binascii` library is capable of translating the key to hexadecimals.
+### Early design and mocks
+Early designs are important to get the clients feedback and for the developer to create an idea of the components required. Putting ideas down visually is crucial. Below is a very early sketch of the designs:
+![designSketches](designSketches.png)
 
 
 ### Design of the UI
@@ -244,6 +214,126 @@ The add book page has
 
 
 
+Development
+---------------
+
+### Secure login program
+An essential part of the program, and the top priority on the success criteria list, is implementing a secure login method. As mentioned previously the client is the only one with access to this program, and therefore an encrypted and secure password lock is crucial. Below are the most important and relevant parts of the code needed to accomplish this, including explanations.
+
+**Getting a password, and confirming it**
+When signing up, the user picks a password. To ensure that no typos occured, the user must re-enter the password to verify it. 
+```.py
+confirmed = False
+while not confirmed:
+    password = input("Enter password: ")
+    c_password = input("Confirm your password: ")
+    confirmed = True if password == c_password else False
+print("Password confirmed")
+```
+*Note the last line, in which a **Pythonic** practice is used - meaning - efficient compression of code into fewer lines. The boolean `confirmed` is only changed to true if the `if` statement is met. `Else`, it is not changed. The loop continues until the password is confirmed.*
+
+**Encrypting the password string**
+```.py
+import os
+import hashlib
+
+salt = os.urandom(32) # this creates a 32 bytes
+key = hashlib.pbkdf2_hmac("sha256", str(password).encode("utf-8"), salt, 1000)
+```
+To encrypt the password string both libraries `os` and `hashlib` must be imported.
+`salt` is assigned as a string of size random bytes suitable for cryptographic use. More information can be found [here](https://www.geeksforgeeks.org/python-os-urandom-method/). In this example, the random string is 32 bytes.
+`key` holds the encrypted password. The module `hashlib.pbkdf2_hmac()` is used with the secure hash algorithm SHA256. More information about this library and module can be found [here](https://docs.python.org/3/library/hashlib.html).
+
+To display the encrypted password as a hexadecimal value, one must simply do as follows:
+```.py
+import binascii
+print(binascii.hexlify(key))
+```
+The `binascii` library is capable of translating the key to hexadecimals.
+
+
+### Logging a user in
+To log a user in, the user must provide an email and password which will be checked against the database of user credentials. The database of user credentials is saved as `passwords.txt`, and includes all of the users' encrypted credentials.
+
+The code is explained below:
+
+1. The inputted email and password are stored
+1. The `passwords.txt` file is opened and a for-loop iterates through the encrypted credentials
+1. The `verify_password()` function is used to compare every stored password in the text file to the inputted `email + password`
+1. If they are equal, the window closes (thus the user gains access to the main window) and they are logged in. The user's book database is loaded
+1. If no credentials match, a pop-up is displayed showing an error message, and inputs are cleared
+
+```.py
+def try_login(self):
+    email = self.emailInput.text()
+    password = self.passwordInput.text()
+    with open("passwords.txt", "r") as passwordFile:
+        for storedPassword in passwordFile:
+            if verify_password(storedPassword, email + password):
+                self.close()
+
+                # Load data from specific user
+                self.homeWindow.sessionEmail = email
+                self.homeWindow.load_data()
+
+                return
+        QMessageBox.about(self, "Error", "Error: Wrong password")
+        self.emailInput.clear()
+        self.passwordInput.clear()
+```
+
+The flowchart for this code can be seen below:
+![tryLoginFlowchart](tryLoginFlowchart.png)
+
+
+### Registering a user
+Both when the user first starts the program and when new users want to create an account, the registration of login credentials are required. These variables are given by the user and outlined below, along with the necessary requirements and constraints on the inputs themselves
+* Email
+  * Must include a "@" to be confirmed as an email address
+* Username
+  * Must only be letters and have a length greater than 5
+* Password
+  * Must be greater than 5 characters and equal to the verification field below
+* Verifying password
+  * Another input of the password, to verify that the user knows his/her password. Both must be equal
+  
+**All 3 of these parameters (email, username and password) must be confirmed and within the requirements before the information is stored. **
+
+However, the user is given more tries. When an input is wrong, the UI gives a visual response in the form of changing the color of the border of the input field. For example, in the method `validate_email()`:
+```.py
+if "@" not in email:
+    self.emailInput.setStyleSheet("border: 1px solid red") # Changes the border
+    return False
+```
+Similar tests and visual altercations are used for the other inputs.
+
+The most important method in this process is `store()`. This method is shown below with explanations and information on its functionality.
+
+1. The email and password from their separate input fields (referenced using the ID of the fields, `emailInput` and `passwordInput`) are collected and stored in variables.
+1. The email and password are hashed (encrypted) together using the `hash_password` function. Both the email and password are passed in because the application will later check if the login information (an email and password) match the registration information. The combined hash is stored in the variable `msg`
+1. All encrypted user credentials are stored in a text file named `passwords.txt`. That file is opened and the `msg` is written to a new line.
+1. The registration window closes with the `self.close()` method
+1. A database (for books) is created, with the name `{EMAIL}_db.csv` containing the user email
+
+
+The full code is shown here:
+```.py
+email = self.emailInput.text()
+password = self.passwordInput.text()
+print("hashing", email + password) 
+msg = hash_password(email + password) # Encrypting the password
+with open("passwords.txt", "a") as output_file: # "a" - appending to a file
+    output_file.write("{}\n".format(msg))
+self.close() # Closing window
+
+# CREATE DATABASE OF BOOKS
+with open(f"{email}_db.csv", "wb") as db:
+    file = csv.writer(db, delimiter=",")
+```
+
+
+
+
 ### Integrating a Database
 A key component of the book inventory system is that it stores information on each book. This has to be achieved through a database, such that the information can be kept between user sessions. While database solutions such as SQL and SQLite could be chosen, a more practical and lightweight solution will be suitable for such a small-scale project. Thus, a `.csv` file is used to store the data, which can be accessed through the `csv` library in python (`import csv`).
 
@@ -311,71 +401,8 @@ for cell in self.data:
     self.tableBooks.setItem(cell[0], cell[1], QTableWidgetItem(cell[2])) # Inserts data into the cells
 ```
 
-### Registering a user
-Both when the user first starts the program and when new users want to create an account, the registration of login credentials are required. These variables are given by the user and outlined below, along with the necessary requirements and constraints on the inputs themselves
-* Email
-  * Must include a "@" to be confirmed as an email address
-* Username
-  * Must only be letters and have a length greater than 5
-* Password
-  * Must be greater than 5 characters and equal to the verification field below
-* Verifying password
-  * Another input of the password, to verify that the user knows his/her password. Both must be equal
-  
-**All 3 of these parameters (email, username and password) must be confirmed and within the requirements before the information is stored. **
-
-However, the user is given more tries. When an input is wrong, the UI gives a visual response in the form of changing the color of the border of the input field. For example, in the method `validate_email()`:
-```.py
-if "@" not in email:
-    self.emailInput.setStyleSheet("border: 1px solid red") # Changes the border
-    return False
-```
-Similar tests and visual altercations are used for the other inputs.
-
-The most important method in this process is `store()`. This method is shown below with explanations and information on its functionality.
-
-1. The email and password from their separate input fields (referenced using the ID of the fields, `emailInput` and `passwordInput`) are collected and stored in variables.
-1. The email and password are hashed (encrypted) together using the `hash_password` function. Both the email and password are passed in because the application will later check if the login information (an email and password) match the registration information. The combined hash is stored in the variable `msg`
-1. All encrypted user credentials are stored in a text file named `Outputs.txt`. That file is opened and the `msg` is written to a new line.
-1. The registration window closes with the `self.close()` method
 
 
-The full code is shown here:
-```.py
-def store(self):
-    email = self.emailInput.text()
-    password = self.passwordInput.text()
-    print("hashing", email + password)
-    msg = hash_password(email + password)
-    with open("Output.txt", "a") as output_file:
-        output_file.write("{}\n".format(msg))
-    self.close()
-```
-
-### Logging a user in
-To log a user in, the user must provide an email and password which will be checked against the database of user credentials.
-
-The code is explained below:
-
-1. The inputted email and password are stored
-1. The `Output.txt` file is opened and a for-loop iterates through the encrypted credentials
-1. The `verify_password()` function is used to compare every stored password in the text file to the inputted `email + password`
-1. If they are equal, the window closes (thus the user gains access to the main window) and they are logged in
-1. If no credentials match, a pop-up is displayed showing an error message, and inputs are cleared
-
-```.py
-def try_login(self):
-    email = self.emailInput.text()
-    password = self.passwordInput.text()
-    with open("Output.txt", "r") as passwordFile:
-        for storedPassword in passwordFile:
-            if verify_password(storedPassword, email + password):
-                self.close()
-                return
-        QMessageBox.about(self, "Error", "Error: Wrong password")
-        self.emailInput.clear()
-        self.passwordInput.clear()
-```
 
 
 
