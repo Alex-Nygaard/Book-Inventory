@@ -138,23 +138,26 @@ Multiple designs were required for my program, with the different windows outlin
 * Remove book page - user can remove a book
 * Search page - user can sort through the collection to find a specific book using a keyword
 
-**All the designs are shown below, in the same order.**
+It is also important to understand that the designing process is continous, which is especially something I've learned throughout this process. As can be seen below, the designs of the program went through an iterative process - refining the UI with every refresh. Below is the first version (the prototype) and the final version (finished product). It is crucial to note the differences, especially in regard to the aestetics. A much more pleasing visual interface leads to a more intuitive experience for the user. This is done by for example color coding, using green buttons for actions like save or login and red buttons for cancel and revert. A neutral background color keeps the design clean and focused. It is also important to note the consistency, the exact same RBG colors are ued throughout the entire program for every screen and button.
+
+**All the designs are shown below, in the same order as mentioned above. Every page includes a picture of the protoype and final design.**
 
 ### Homescreen
 The homescreen has 
 * 1 title
-* 1 main table with all the books and 
-* 3 buttons navigating to the pages
+* 1 main table with all the books 
+* 4 buttons
   * Add book
   * Remove book
-  * Search
+  * Revert changes
+  * Save Changes
+* 1 searchbar (for input)
 
-
-<img src="designs/allBooksPage.png" width="400">
+<img src="designs/allBooksPage.png" width="500">
 
 #### Reworked home page:
 
-<img src="designs/NEWmainPage.png" width="400">
+<img src="designs/NEWmainPage.png" width="500">
 
 <br>
 
@@ -164,16 +167,17 @@ The login page has
 * 2 input fields for 
   * Username 
   * Password
-* 1 button that checks the input of the user and possibly navigates to the home screen
-* 1 button that opens the register window
-* 1 exit button
+* 3 buttons
+  * Login (Closes login window)
+  * Register (Opens register window)
+  * Exit (Closes entire application)
 
 
-<img src="designs/loginPage.png" width="400">
+<img src="designs/loginPage.png" width="500">
 
 #### Reworked login page:
 
-<img src="designs/NEWloginPage.png" width="400">
+<img src="designs/NEWloginPage.png" width="500">
 
 <br>
 
@@ -186,15 +190,15 @@ The register page has
   * Password
   * Verify password
 * 2 buttons
-  * Registering - chekcing and adding the user information
-  * Exit the register window
+  * Register (Validating and adding the user information to database)
+  * Exit (Close the window)
 
 
-<img src="designs/registerPage.png" width="400">
+<img src="designs/registerPage.png" width="500">
 
 #### Reworked register page:
 
-<img src="designs/NEWregisterPage.png" width="400">
+<img src="designs/NEWregisterPage.png" width="500">
 
 <br>
 
@@ -211,14 +215,14 @@ The add book page has
   * Publication date
   * Number of times read
 * 2 buttons
-  * Add the book
-  * Cancel
+  * Add the book (Validate input, add to database, close window)
+  * Cancel (Close window)
 
-<img src="designs/addBookPage.png" width="400">
+<img src="designs/addBookPage.png" width="500">
 
-#### Reworked home page:
+#### Reworked Add Book page:
 
-<img src="designs/NEWaddBookPage.png" width="400">
+<img src="designs/NEWaddBookPage.png" width="500">
 
 <br>
 
@@ -227,25 +231,69 @@ The add book page has
 ### Integrating a Database
 A key component of the book inventory system is that it stores information on each book. This has to be achieved through a database, such that the information can be kept between user sessions. While database solutions such as SQL and SQLite could be chosen, a more practical and lightweight solution will be suitable for such a small-scale project. Thus, a `.csv` file is used to store the data, which can be accessed through the `csv` library in python (`import csv`).
 
-This data must be loaded into the table on the main page. Below is a code snippet showing how the data is stored for later use and how the table is filled out:
+For every user, there is a separate database. This way, all the data remains individual and private. This separation of databases is done by creating a .csv database for every user upon registration. The databases are named using the user's email, in the format `USEREMAIL_db.csv`. Upon a successful login, the email of the user is saved in the variable `sessionEmail`. Thus, every time an interaction with the database is required, this user-specific file is accessed.
+
+The data must be loaded into the table on the main page. Below is a code snippet showing how the data is stored for later use and how the table is filled out:
 ```.py
 def load_data(self):
+    print("LOADING DATA")
+    dataList = []
+    self.tableBooks.clearContents()
     # Here we read the db.csv file
-    data = []
-    with open("db.csv") as dataBase:
+    with open(f"{self.sessionEmail}_db.csv") as dataBase:
         file = csv.reader(dataBase, delimiter=",")
         for i, row in enumerate(file): # Gets all the rows, with index 0
             for j, col in enumerate(row):
-                data.append([i,j,col]) # Creates a data-matrix that can be edited later
-                if i != 0: # Does not add the 0th index to the table (this is just titles)
-                    self.tableBooks.setItem(i-1,j,QTableWidgetItem(col)) # Append to the table at index i-1, j
+                dataList.append([i,j,col]) # Creates a data-matrix that can be edited later
+                self.tableBooks.setItem(i,j,QTableWidgetItem(col)) # Append to the table at index i, j
+    self.data = dataList
+    return self.data
 ```
 *Note: The `csv.reader()` method is essential here. It is important to note how this is used. While it returns a iterable (saved as `file`), this is not a list. It cannot be sliced using `[1:5]`, for example.*
 
 The `enumerate(ITERABLE)` function returns both the iterable, combined with the index of that value. In `for i, row in enumerate(row):`, the index is stored in `i`, and the value in `row`.
 
+#### Writing to the database
+After changes to the table is made by the user, either by manually editing cells or by removing a book (an entire row), the option to save the current table data to the database must be an option. Many steps are involved in this process. These are outlined below.
 
+Firstly, the `self.data` list must be updated with the edited table, because it is used later for writing to the database.
+The codesnippet below retrieves the content of the table in each individual cell, and creates a data matrix in `self.data`.
+```.py
+# Get table data and save in self.data
+    tempData = []
+    for i in range(int(len(self.data)/8)):
+        for j in range(self.tableBooks.columnCount()):
+            try:
+                tempData.append([i,j,self.tableBooks.item(i,j).text()])
+            except:
+                pass
+    self.data = tempData
+```
+*Note 1: Here the `try` and `except` keywords are used. As mentioned in the comments, this is for the purpose of avoiding errors caused by empty cells (e.g. when a book is removed). The cells which are empty are not added to `tempData`*
 
+*Note 2: In the first `for` loop, the range of `ìnt(len(self.data)/8)` is used. This is a simple way to get the row count. The length of the `self.data` list is always multiples of 8, since every row always includes 8 items.*
+
+**Next, it is essential to adjust `self.data` to account for the missing rows.** This is for keeping the database clean and without blank lines (which leads to blank rows in the database). This is done by simply change the row values of the appropriate values of `self.data`. The code is shown below:
+```.py
+# REMOVE BLANK ROWS IN DATA
+rowNum = 0
+for i in range(len(self.data)):
+    self.data[i][0] = rowNum
+    if self.data[i][1] == 7:
+        rowNum += 1
+```
+When the 8th column is reached (7th index), the program accounts for the row change as well by incrementing `rowNum` by 1.
+
+The last part of this process in outlined in the flowchart below. The purpose is to save the data in the table to the .csv database.
+
+![writeToDBflowchart](writeToDB.png)
+
+The very last step is updating the table with the new information, done with:
+```.py
+self.tableBooks.clearContents() # Empty the table
+for cell in self.data:
+    self.tableBooks.setItem(cell[0], cell[1], QTableWidgetItem(cell[2])) # Inserts data into the cells
+```
 
 ### Registering a user
 Both when the user first starts the program and when new users want to create an account, the registration of login credentials are required. These variables are given by the user and outlined below, along with the necessary requirements and constraints on the inputs themselves
