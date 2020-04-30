@@ -437,6 +437,28 @@ In this code snippet, step number 4, 5 and 6 are completed. The comments explain
 
 
 #### Searching for a book
+The ability to search for a book becomes vital when the book collection grows. The search-algorithm I chose to use is fairly straight forward, and based upon the idea of filtering what is shown in the table. Thus, every search result is clearly distinguished with a color (light blue). The search is instant, and the table is updated in real-time. The code-snippet for the algorithm used and the corresponding flowchart is shown below:
+```.py
+self.text = self.searchField.text().lower() # Text is retrieved
+self.filteredData = [] # New list is created every time text changes
+
+for i in self.data:
+    if self.text in i[2].lower(): # Checks to find a row with text
+        # Stores entire row in filteredData
+        row = i[0] 
+        for j in self.data: # Loops through self.data and adds all items from that row
+            if j[0] == row:
+                self.filteredData.append(j)
+```
+*Note: Two for loops are used. The reason for this is that first loop is for checking if the value is in any cell. The second is for looping through the `self.data` list again and appending all the values with a row value equal to `row` to the `self.filteredData` list.*
+
+The flowchart is as follows:
+![searchFlowchart](searchFlowchart.png)
+
+As can be seen, the table is updated after every change to the search inquiry. While the table is updated with the `self.filteredData` list, every cell than contains something (is in the `self.filteredData` list), changes color to blue. This is for better visualising the results. 
+
+
+
 
 
 
