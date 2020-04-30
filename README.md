@@ -83,6 +83,9 @@ Success criteria in order of priority. These criterias have been consulted with 
   * Easy input within GUI
 * Removing books
   * One-button click (with a yes/no confirmation)
+* Editing books
+  * Changing individual characteristics of books
+* Editing and removing books can be reverted (cancelled)
 * Search for a book
   * Displaying results in less than 1 sec
   * Intuitive display of results
