@@ -90,10 +90,10 @@ My solution will be an **offline graphical user interface (GUI) software program
 
 Success criteria in order of priority. These criterias have been consulted with and confirmed by the client.
 
-* Secure login
-* Register new users
+1. Secure login
+2. Register new users
   * Stores encrypted email, username and password
-* Having categories for book characteristics
+3. Displaying categories for book characteristics in organized table
   * Title
   * Authors
   * Continent and nationality of author
@@ -101,14 +101,14 @@ Success criteria in order of priority. These criterias have been consulted with 
   * Cover color
   * Date of publication
   * How many times the book has been read
-* Adding books
+4. Adding books
   * Easy input within GUI
-* Removing books
+5. Removing books
   * One-button click (with a yes/no confirmation)
-* Editing books
+6. Editing books
   * Changing individual characteristics of books
-* Editing and removing books can be reverted (cancelled)
-* Search for a book
+7. Editing and removing books can be reverted (cancelled)
+8. Search for a book
   * Displaying results in less than 1 sec
   * Intuitive display of results
 
@@ -123,11 +123,10 @@ To check if the system meets the success criteria, the program must go through a
 | Add book 2           | Title: Norwegian Wood. Author: Haruki Murakami. Nationality: Japan. Continent: Asia. Editor: Jun Ichikawa. Cover color: Orange. Date of publication: 07/11/1989. Times read: 1    | Book is shown in table and added to database                                     |       |
 | Add book 3           | Title: The Hobbit. Author J. R. R. Tolkien. Nationality: South Africa. Continent: Africa. Editor: George MacDonald. Cover color: Green. Date published: 21/09/1937. Times read: 1 | Book is shown in table and added to database                                     |       |
 | Search               | Input "asia", "19", "hobbit" into search field                                                                                                                                    | "Asia": book 1 and 2 appear. "19": book 2 and 3 appear. "hobbit": book 3 appears |       |
-| Edit book and save   | On separate books: Change Color to Blue. Change Times read to 3. Change nationality to Taiwan.                                                                                    | Updated books are shown in table and added to database                           |       |
+| Edit book and save   | On separate books: Change Color to Blue. Change Times read to 3. Change nationality to Taiwan.  Press "save" button                                                               | Updated books are shown in table and added to database                           |       |
 | Revert edit          | Change Title to 1984 Change Editor to Thomas Lee Press "revert" button                                                                                                            | No change is made to table                                                       |       |
-| Remove book and save | Remove "Norwegian wood"                                                                                                                                                           | Removed "Norwegian wood" from table and database                                 |       |
-| Revert removal       | Remove "Sapiens" Press "revert" button                                                                                                                                            | "Sapiens" appears                                                                |       |
-
+| Remove book and save | Remove "Norwegian wood". Press "save button"                                                                                                                                      | Removed "Norwegian wood" from table and database                                 |       |
+| Revert removal       | Remove "Sapiens" Press "revert" button                                                                                                                                            | "Sapiens" appears, no change to database                                         |       |
 
 ### TELOS Principle
 
@@ -504,7 +503,25 @@ As can be seen, the table is updated after every change to the search inquiry. W
 
 Evaluation
 ---------------
+To evaluate the program, one must revisit the success criteria and thus also the test plan. Below is the test plan filled out, with all the successful tests marked with a "Yes" in the "Check" column.
 
+
+| Step                 | Input                                                                                                                                                                             | Output                                                                           | Check |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-------|
+| Register new user    | Email: test@gmail.com. Username: testinguser. Password: helloworld. Verify: helloworld.                                                                                           | Encrypted email + password stored in passwords.txt file                          | Yes   |
+| Login                | Email: test@gmail.com. Password: helloworld                                                                                                                                       | Successful login, access to main window                                          | Yes   |
+| Add book 1           | Title: Sapiens. Author: Yuval Harari. Nationality: Isreal. Continent: Asia. Editor: Galen Strawson. Cover color: White. Date of publication: 15/03/2011. Times read: 2            | Book is shown in table and added to database                                     | Yes   |
+| Add book 2           | Title: Norwegian Wood. Author: Haruki Murakami. Nationality: Japan. Continent: Asia. Editor: Jun Ichikawa. Cover color: Orange. Date of publication: 07/11/1989. Times read: 1    | Book is shown in table and added to database                                     | Yes   |
+| Add book 3           | Title: The Hobbit. Author J. R. R. Tolkien. Nationality: South Africa. Continent: Africa. Editor: George MacDonald. Cover color: Green. Date published: 21/09/1937. Times read: 1 | Book is shown in table and added to database                                     | Yes   |
+| Search               | Input "asia", "19", "hobbit" into search field                                                                                                                                    | "Asia": book 1 and 2 appear. "19": book 2 and 3 appear. "hobbit": book 3 appears | Yes   |
+| Edit book and save   | On separate books: Change Color to Blue. Change Times read to 3. Change nationality to Taiwan.  Press "save" button                                                               | Updated books are shown in table and added to database                           | Yes   |
+| Revert edit          | Change Title to 1984 Change Editor to Thomas Lee Press "revert" button                                                                                                            | No change is made to table                                                       | Yes   |
+| Remove book and save | Remove "Norwegian wood". Press "save button"                                                                                                                                      | Removed "Norwegian wood" from table and database                                 | Yes   |
+| Revert removal       | Remove "Sapiens" Press "revert" button                                                                                                                                            | "Sapiens" appears, no change to database                                         | Yes   |
+
+From these results, it becomes clear that the application behaves as anticipated, with all the requirements of the user met. No difficulties were met during the testing. This can be attributed to rigorous bug-hunting and fixing throughout the development stages. 
+
+Below is a video that is part of criterion D - Evaluation.
 
 
 
