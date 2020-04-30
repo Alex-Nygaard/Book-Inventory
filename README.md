@@ -2,7 +2,15 @@
 
 # Inventory project UNIT 3
 
-## Criteria A - Planning
+## Contents
+  1. [Planning](#planning)
+  1. [Design](#design)
+  1. [Development](#development)
+  1. [Evaluation](#evaluation)
+  1. [Improvements](#improvements)
+
+Planning
+---------------
 
 ### Identifying the client
 The client is Christ Precieux (CP), a student attending UWC ISAK Japan. CP currently owns a collection of books, which are completely unorganised. All of his books have certain characteristics which he wants to document and categorise, such that it is easier for him to understand and be aware of his book collection at all times. Currently, there is no system in place to handle this organisation. The client wants to be able to keep track of the characteristics of books including:
@@ -90,7 +98,15 @@ It can be found here:
 
 [TELOS feasibility report](TELOS.md)
 
-## Development
+
+Design
+---------------
+
+
+
+
+Development
+---------------
 
 ### Secure login program
 An essential part of the program, and the top priority on the success criteria list, is implementing a secure login method. As mentioned previously the client is the only one with access to this program, and therefore an encrypted and secure password lock is crucial. Below are the most important and relevant parts of the code needed to accomplish this, including explanations.
@@ -365,9 +381,14 @@ def try_login(self):
 
 
 
-## Evalutation
+Evaluation
+---------------
 
-## Improvements
+
+
+
+Improvements
+---------------
 
 
 
