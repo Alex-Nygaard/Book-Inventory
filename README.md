@@ -101,7 +101,8 @@ It can be found here:
 ### System design diagram
 Below is the system design diagram, including all the main components that will collectively become a working application. Each box is a separate window that the user interacts with through the buttons and input fields (outlined in the diagram). The databases are shown as well, and the single-lined arrows indicate the dataflow; what data is transferred and used where. Sme of the main processes, such as user authentication, revert, save, adding a book and search, are also included. This is only intended to represent a surface picture of the system. For detailed description of individual components, visit the [Design](#design) and [Development](#development) pages.
 
-![systemDiagram](systemDiagram.png)
+
+![systemDiagram](flowcharts/systemDiagram.png)
 
 
 
@@ -283,7 +284,7 @@ def try_login(self):
 ```
 
 The flowchart for this code can be seen below:
-![tryLoginFlowchart](tryLoginFlowchart.png)
+![tryLoginFlowchart](flowcharts/tryLoginFlowchart.png)
 
 
 ### Registering a user
@@ -392,7 +393,7 @@ When the 8th column is reached (7th index), the program accounts for the row cha
 
 The last part of this process in outlined in the flowchart below. The purpose is to save the data in the table to the .csv database.
 
-![writeToDBflowchart](writeToDB.png)
+![writeToDBflowchart](flowcharts/writeToDB.png)
 
 The very last step is updating the table with the new information, done with:
 ```.py
@@ -453,7 +454,7 @@ for i in self.data:
 *Note: Two for loops are used. The reason for this is that first loop is for checking if the value is in any cell. The second is for looping through the `self.data` list again and appending all the values with a row value equal to `row` to the `self.filteredData` list.*
 
 The flowchart is as follows:
-![searchFlowchart](searchFlowchart.png)
+![searchFlowchart](flowcharts/searchFlowchart.png)
 
 As can be seen, the table is updated after every change to the search inquiry. While the table is updated with the `self.filteredData` list, every cell than contains something (is in the `self.filteredData` list), changes color to blue. This is for better visualising the results. 
 
