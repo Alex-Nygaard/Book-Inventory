@@ -153,11 +153,11 @@ The homescreen has
 
 
 <div style="display: flex">
-  <div style="flex: 40%; padding: 5px">
-    <img src="designs/allBooksPage.png" height="300">
+  <div style="flex: 50%; padding: 5px">
+    <img src="designs/allBooksPage.png" style="width: 100%">
   </div>
-  <div style="flex: 40%; padding: 5px">
-    <img src="designs/loginPage.png" height="300">
+  <div style="flex: 50%; padding: 5px">
+    <img src="designs/loginPage.png" style="width: 100%">
   </div>
 </div>
 
