@@ -150,18 +150,14 @@ The homescreen has
   * Search
 
 
-
-
-<div style="display: flex">
-  <div style="flex: 50%; padding: 5px">
-    <img src="designs/allBooksPage.png" style="width: 45%">
-  </div>
-  <div style="flex: 50%; padding: 5px">
-    <img src="designs/loginPage.png" style="width: 45%">
-  </div>
+<div style="display:flex">
+     <div style="flex:1;padding-right:5px;">
+          <img src="designs/allBooksPage.png" height="300">
+     </div>
+     <div style="flex:1;padding-left:5px;">
+          <img src="designs/NEWmainPage.png" height="300">
+     </div>
 </div>
-
-
 
 <br>
 
