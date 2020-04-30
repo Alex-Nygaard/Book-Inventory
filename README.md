@@ -28,11 +28,33 @@ No timeline has been given by the client. However, at this stage, as the develop
 
 ### Table of planning
 This table shows completed and planned tasks which are of significant importance. This includes for example consultations with the client and development milestones:
-| Task No | Planned Action                                      | Expected outcome                       | Time   | Target completion | Evidence        |
-|---------|-----------------------------------------------------|----------------------------------------|--------|-------------------|-----------------|
-| 1       | Planning: Meeting with client                       | Identify the client requirements       | 30 min | 12. Feb 2020      | Email exchange  |
-| 2       | Development: Create a secure login system in Python | Finished login program                 | 20 min | 13. Feb 2020      | Program         |
-| 3       | Planning: Confirming success criteria               | Confirm success criteria by the client | 10 min | 14. Feb 2020      | Voice recording |
+
+| Task No | Planned Action                                         | Expected outcome                                   | Time   | Target completion | Evidence             |
+|---------|--------------------------------------------------------|----------------------------------------------------|--------|-------------------|----------------------|
+| 1       | Planning: Meeting with client                          | Identify the client requirements                   | 30 min | 12. Feb 2020      | Email exchange       |
+| 2       | Development: Create a secure login system in Python    | Finished login program                             | 20 min | 13. Feb 2020      | Program              |
+| 3       | Planning: Confirming success criteria                  | Confirm success criteria by the client             | 10 min | 14. Feb 2020      | Voice recording      |
+| 4       | Planning: Creating system diagram                      | Finished system diagram                            | 20 min | 20. Feb 2020      | Picture of diagram   |
+| 5       | Planning: Creating a test plan                         | Finished test plan                                 | 10 min | 20. Feb 2020      | Test plan            |
+| 6       | Planning: Sketching designs                            | Mocks of designs                                   | 15 min | 2. Mar 2020       | Drawings             |
+| 7       | Planning: Making test plan                             | Finished test plan                                 | 20 min | 2. Mar 2020       | Test plan            |
+| 8       | Development: Creating prototype designs                | Designs for each page based on mocks               | 1 hr   | 7. Mar 2020       | .ui files            |
+| 9       | Development: Displaying windows and dialogs            | Running protype UI                                 | 20 min | 7. Mar 2020       | Program              |
+| 10      | Development: Create a database                         | Reading .csv file and storing data as list         | 20 min | 5. April 2020     | Program              |
+| 10.1    | Subgoal: Importing data into table                     | Filled table widget with data                      | 30 min | 10. April 2020    | Program              |
+| 11      | Development: Registering a user                        | Being able to add individual users                 | 1 hr   | 13. April 2020    | Program              |
+| 11.1    | Subgoal: Take input from user, validate input          | Restrictions on input fields, certain requirements | 30 min | 13. April 2020    | Program              |
+| 11.2    | Subgoal: Hashing and storing email + password          | Using task no. 2, hashed credentials in .txt file  | 30 min | 15. April 2020    | Program              |
+| 12      | Development: Authenticating login attempt              | User can log in                                    | 30 min | 15. April 2020    | Program              |
+| 13      | Developement: Editing table                            | The edits of a table is saved to the database      | 50 min | 20. April 2020    | Program              |
+| 13.1    | Subgoal: Reverting edits made (reloading table)        | Any user edits are reverted to last saved data     | 20 min | 20. April 2020    | Program              |
+| 13.2    | Subgoal: Saving changes to database                    | Any user edits are saved to database               | 30 min | 20. April 2020    | Program              |
+| 14      | Developement: Removing a book                          | A book is removed from the database                | 40 min | 22. April 2020    | Program              |
+| 14.1    | Subgoal: Delete book from database                     | Contents of table (without removed book) is saved  | 20 min | 22. April 2020    | Program              |
+| 15      | Development: Add book to database                      | Appending books in the .csv file                   | 30 min | 27. April 2020    | Program              |
+| 16      | Evaluating: Executing test plan                        | Checked test plan                                  | 40 min | 28. April 2020    | Filled out test plan |
+| 17      | Evaluating: Confirming success criteria with test plan | Program meets all expected criteria                | 10 min | 29. April 2020    | Video recording      |
+| 18      | Improvements: Suggesting improvements                  | List of possible improvements                      | 25 min | 30. April 2020    | List of improvements |
 
 ### Explicit consultation with client (reference appendix)
 See the link below to read the explicit consultation with the client. This section is located beneath the heading *"My role as a developer"*.
@@ -89,6 +111,23 @@ Success criteria in order of priority. These criterias have been consulted with 
 * Search for a book
   * Displaying results in less than 1 sec
   * Intuitive display of results
+
+### Test plan
+To check if the system meets the success criteria, the program must go through a series of tests to understand its capabilities. These tests are outlined in the test plan below, and will be used in the [Evaluation](#evaluation) section:
+
+| Step                 | Input                                                                                                                                                                             | Output                                                                           | Check |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|-------|
+| Register new user    | Email: test@gmail.com. Username: testinguser. Password: helloworld. Verify: helloworld.                                                                                           | Encrypted email + password stored in passwords.txt file                          |       |
+| Login                | Email: test@gmail.com. Password: helloworld                                                                                                                                       | Successful login, access to main window                                          |       |
+| Add book 1           | Title: Sapiens. Author: Yuval Harari. Nationality: Isreal. Continent: Asia. Editor: Galen Strawson. Cover color: White. Date of publication: 15/03/2011. Times read: 2            | Book is shown in table and added to database                                     |       |
+| Add book 2           | Title: Norwegian Wood. Author: Haruki Murakami. Nationality: Japan. Continent: Asia. Editor: Jun Ichikawa. Cover color: Orange. Date of publication: 07/11/1989. Times read: 1    | Book is shown in table and added to database                                     |       |
+| Add book 3           | Title: The Hobbit. Author J. R. R. Tolkien. Nationality: South Africa. Continent: Africa. Editor: George MacDonald. Cover color: Green. Date published: 21/09/1937. Times read: 1 | Book is shown in table and added to database                                     |       |
+| Search               | Input "asia", "19", "hobbit" into search field                                                                                                                                    | "Asia": book 1 and 2 appear. "19": book 2 and 3 appear. "hobbit": book 3 appears |       |
+| Edit book and save   | On separate books: Change Color to Blue. Change Times read to 3. Change nationality to Taiwan.                                                                                    | Updated books are shown in table and added to database                           |       |
+| Revert edit          | Change Title to 1984 Change Editor to Thomas Lee Press "revert" button                                                                                                            | No change is made to table                                                       |       |
+| Remove book and save | Remove "Norwegian wood"                                                                                                                                                           | Removed "Norwegian wood" from table and database                                 |       |
+| Revert removal       | Remove "Sapiens" Press "revert" button                                                                                                                                            | "Sapiens" appears                                                                |       |
+
 
 ### TELOS Principle
 
