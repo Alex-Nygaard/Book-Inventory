@@ -16,7 +16,7 @@ The client is Christ Precieux (CP), a student attending UWC ISAK Japan. CP curre
 
 The client also wants to be able to search for books based on the categories above. A search algorithm must be implemented, which quickly displays the most relevant results divided into each individual category, based on a given search term. 
 
-No timeline has been given by the client. However, at this stage, as the developer, I have put an estimated completion date for **March 20th**. 
+No timeline has been given by the client. However, at this stage, as the developer, I have put an estimated completion date for **April 30th**. 
 
 ### Table of planning
 This table shows completed and planned tasks which are of significant importance. This includes for example consultations with the client and development milestones:
@@ -51,7 +51,7 @@ My solution will be an **offline graphical user interface (GUI) software program
 * Editing books
   * Changing information about a book
 * Searching for books
-  * Giving results based on an inputted search term
+  * Giving results based on an inputed search term
   * Separated and sorted based on the categories
   * Relevance is prioritised
 
@@ -148,12 +148,21 @@ The homescreen has
   * Add book
   * Remove book
   * Search
-  
-  
-![homescreen](designs/allBooksPage.png)
 
-<br>
-<br>
+
+
+
+<div style="display: flex">
+  <div style="flex: 50%; padding: 100px">
+    <img src="designs/allBooksPage.png" height="300">
+  </div>
+  <div style="flex: 50%; padding: 5px">
+    <img src="designs/loginPage.png" height="300">
+  </div>
+</div>
+
+
+
 <br>
 
 ### Login Page
@@ -167,7 +176,7 @@ The login page has
 * 1 exit button
 
 
-![login](designs/loginPage.png)
+<img src="designs/loginPage.png" width="400">
 
 <br>
 <br>
