@@ -511,21 +511,33 @@ To evaluate the program, one must revisit the success criteria and thus also the
 From these results, it becomes clear that the application behaves as anticipated, with all the requirements of the user met. No difficulties were met during the testing. This can be attributed to rigorous bug-hunting and fixing throughout the development stages. 
 
 Below is a video that is part of criterion D - Evaluation.
-INSERT VIDEO
+
+[ALEX_N Unit 3 success criteria evaluation](https://youtu.be/jgiC-1BM9TQ) (5:48)
 
 
 Improvements
 ---------------
 While the application comfortably met the requirements of the client, there are always aspects with room for improvements. Therefore, I have compiled a short list of possible areas of focus for further development given more time. Further improvements could include these suggestions:
 
-* Server version (does not require python)
-* Cloud backup (google drive)
-* Sharable collections (databases for multiple users)
-* Username
-* More items
-* Pictures
-* Page for each item, more information
+**Webserver version**
+A significant improvement can be changing the platform of the application. At this finished stage, the product is offline and requires a certain set of software. A webserver can solve both of these limitations. By keeping the application on a server, it is accessible anywhere and anytime. While this would require different programming languages (such as HTML, CSS, and PHP/Python) and a unique architecture, it is regardless a very realistic improvement. At the current stage, the client must have a computer with the required Python and Python packages software. As mentioned in the planning section, this was not a problem, because a prerequisite given by the client was that he had a compatible computer. However, if the usage of this software package is to be extended, it is better to avoid possible incompatibility issues by moving to a webserver. Webpages are available nearly all common devices, and seldom require addition software other than a web browser.
 
+**Cloud backup**
+The program does not currently have any backup options. The databases and passwords are stored in local files. This is a risk. If the host computer experiences data-loss, for example if it crashes unexpectedly or the harddisk is damaged, the information of the program is lost. Thus, a relevant improvement can be backup in the "cloud". By integrating a Google Drive or Microsoft OneDrive account, it could be possible to upload the data of the program with regular and preferably frequent interval, in case data is lost locally. This could be combined with the suggestion above with a custom webserver, where data is stored both on the server and locally on a computer.
 
+**Sharable collections**
+Another improvement could be shared databases. In many cases, people dont have their own book collection, but rather a shared. This could be for example between roommates, couples or any household. In this case, shared databases can significantly help organize the collection. Individual users can have different accounts, but also choose to share a database with another user. Thus every user that has access can add, remove and edit the same books. The user could also have a private collection, but all the books combined could be shown in the table.
+
+**Admin accounts**
+A feature I meant to implement was an admin account. This would be for the owner of the application, and give a way to organize other user accounts. For example, if an account was registered with the wrong information the admin could be contacted to change it.
+
+**Search by category**
+Another feature I did not manage to create was searching by category. In other words, a given search term could by chance have results in many categories, for example the title and author. Separating these results, with for example one section including results in Titles, and another with results in Authors, would be very intuitive for the user. While the current search system works well, such an improvement could provide added clarity.
+
+**Page for each item, with more information (pictures!)**
+One more improvement to the program could be adding more information on the book. How thourough this information should be, however, is up to the client if he wishes further development. Examples of relevant information that could be added, is the price of the book (from amazon), the picture of the cover, the page count, link to (or snippet from) the authors Wiki page etc. Creating individual pages for each book could also be good, and such an improvement provides more variation and less reliance on the table. An individual page would look could be accessed by clicking on a book, an a new window is opened.
+
+**Username**
+A small improvement could be using the username on the Home Screen. This would lead to a more personalized touch, with the title being for example "Welcome, USERNAME".
 
 
