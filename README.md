@@ -511,13 +511,20 @@ To evaluate the program, one must revisit the success criteria and thus also the
 From these results, it becomes clear that the application behaves as anticipated, with all the requirements of the user met. No difficulties were met during the testing. This can be attributed to rigorous bug-hunting and fixing throughout the development stages. 
 
 Below is a video that is part of criterion D - Evaluation.
-
+INSERT VIDEO
 
 
 Improvements
 ---------------
+While the application comfortably met the requirements of the client, there are always aspects with room for improvements. Therefore, I have compiled a short list of possible areas of focus for further development given more time. Further improvements could include these suggestions:
 
-
+* Server version (does not require python)
+* Cloud backup (google drive)
+* Sharable collections (databases for multiple users)
+* Username
+* More items
+* Pictures
+* Page for each item, more information
 
 
 
