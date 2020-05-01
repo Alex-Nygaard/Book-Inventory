@@ -90,27 +90,16 @@ My solution will be an **offline graphical user interface (GUI) software program
 
 Success criteria in order of priority. These criterias have been consulted with and confirmed by the client.
 
-1. Secure login
-2. Register new users
-  * Stores encrypted email, username and password
-3. Displaying categories for book characteristics in organized table
-  * Title
-  * Authors
-  * Continent and nationality of author
-  * Editor
-  * Cover color
-  * Date of publication
-  * How many times the book has been read
-4. Adding books
-  * Easy input within GUI
-5. Removing books
-  * One-button click (with a yes/no confirmation)
-6. Editing books
-  * Changing individual characteristics of books
-7. Editing and removing books can be reverted (cancelled)
-8. Search for a book
-  * Displaying results in less than 1 sec
-  * Intuitive display of results
+| No. | Success criteria                   | Explanation                                                                    |
+|-----|------------------------------------|--------------------------------------------------------------------------------|
+| 1   | Secure login                       | Validation of encrypted password Concealed password                            |
+| 2   | Register new user                  | Stores encrypted email + password Creates new user-specific database           |
+| 3   | Displaying books and categories    | Table shows all books and data                                                 |
+| 4   | Adding books                       | Books can be added to the database                                             |
+| 5   | Removing books                     | Books can be removed from database with yes/no confirmation                    |
+| 6   | Editing books                      | Individual book properties can be edited with yes/no confirmation              |
+| 7   | Search for book                    | Table contents can be filtered based on keyword. Displaying in less than 1 sec |
+| 8   | High usability and pleasing design | Easy to navigate for user. No instructions or manual needed                    |
 
 ### Test plan
 To check if the system meets the success criteria, the program must go through a series of tests to understand its capabilities. These tests are outlined in the test plan below, and will be used in the [Evaluation](#evaluation) section:
