@@ -138,7 +138,8 @@ Design
 
 ### Early design and mocks
 Early designs are important to get the clients feedback and for the developer to create an idea of the components required. Putting ideas down visually is crucial. Below is a very early sketch of the designs:
-![designSketches](designSketches.png)
+
+![designSketches](designs/designSketches.png)
 
 
 ### Design of the UI
@@ -149,8 +150,6 @@ Multiple designs were required for my program, with the different windows outlin
 * Login page - user enters credentials and is either granted or refused access into the system (this is the first page the user encounters, because a login is always required)
 * Register page - allows the user to add his/her personal details the first time the program is used
 * Add book page - user can add a book
-* Remove book page - user can remove a book
-* Search page - user can sort through the collection to find a specific book using a keyword
 
 It is also important to understand that the designing process is continous, which is especially something I've learned throughout this process. As can be seen below, the designs of the program went through an iterative process - refining the UI with every refresh. Below is the first version (the prototype) and the final version (finished product). It is crucial to note the differences, especially in regard to the aestetics. A much more pleasing visual interface leads to a more intuitive experience for the user. This is done by for example color coding, using green buttons for actions like save or login and red buttons for cancel and revert. A neutral background color keeps the design clean and focused. It is also important to note the consistency, the exact same RBG colors are ued throughout the entire program for every screen and button.
 
@@ -512,7 +511,9 @@ From these results, it becomes clear that the application behaves as anticipated
 
 Below is a video that is part of criterion D - Evaluation.
 
-[ALEX_N Unit 3 success criteria evaluation](https://youtu.be/jgiC-1BM9TQ) (5:48)
+[![](https://img.youtube.com/vi/jgiC-1BM9TQ/0.jpg)](https://www.youtube.com/watch?v=jgiC-1BM9TQ)
+
+Video duration - **5:48**
 
 
 Improvements
