@@ -244,6 +244,11 @@ The add book page has
 Development
 ---------------
 
+**All code can be found in the "code" folder:**
+
+[Code Folder](https://github.com/Alex-Nygaard/unit3/tree/master/code)
+<br>
+
 ### Secure login program
 An essential part of the program, and the top priority on the success criteria list, is implementing a secure login method. As mentioned previously the client is the only one with access to this program, and therefore an encrypted and secure password lock is crucial. Below are the most important and relevant parts of the code needed to accomplish this, including explanations.
 
