@@ -428,7 +428,7 @@ for cell in self.data:
     self.tableBooks.setItem(cell[0], cell[1], QTableWidgetItem(cell[2])) # Inserts data into the cells
 ```
 
-#### Adding a book
+### Adding a book
 A core functionality of the system is giving the user the opportunity to add new books. This is needed to keep the inventory system up to date with the client's book collection. The process of appending a book to a database is fairly simple, following these steps:
 1. Opening the add book window
 1. Get the inputs from the user
@@ -463,7 +463,7 @@ self.close() # Close window
 In this code snippet, step number 4, 5 and 6 are completed. The comments explain the functionality.
 
 
-#### Searching for a book
+### Searching for a book
 The ability to search for a book becomes vital when the book collection grows. The search-algorithm I chose to use is fairly straight forward, and based upon the idea of filtering what is shown in the table. Thus, every search result is clearly distinguished with a color (light blue). The search is instant, and the table is updated in real-time. The code-snippet for the algorithm used and the corresponding flowchart is shown below:
 ```.py
 self.text = self.searchField.text().lower() # Text is retrieved
